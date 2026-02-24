@@ -1,7 +1,7 @@
 
 ---
 
-# 🗓 WEEK 1 — DAY 3 — VACUUM
+# 📘 WEEK 1 — DAY 3 — VACUUM
 
 ---
 

@@ -1,7 +1,7 @@
 
 ---
 
-# 🗓 WEEK 1 — DAY 4 — MERGE
+# 📘 WEEK 1 — DAY 4 — MERGE
 
 ---
 
@@ -16,12 +16,13 @@ MERGE combines:
 In a single atomic transaction.
 
 Typical pattern:
-
+```sql
 MERGE INTO target t
 USING source s
 ON t.id = s.id
 WHEN MATCHED THEN UPDATE
 WHEN NOT MATCHED THEN INSERT
+```
 
 MERGE is implemented using copy-on-write.
 
@@ -65,11 +66,13 @@ This is one of the most common Professional exam traps.
 Target:
 
 id | value
+|---|---|
 1  | A
 
 Source:
 
 id | value
+|---|---|
 1  | X
 1  | Y
 
@@ -86,26 +89,22 @@ Delta requires source deduplication before MERGE.
 ## 5️⃣ Clause Ordering Matters
 
 MERGE allows:
-
+```sql
 WHEN MATCHED AND condition THEN UPDATE
 WHEN MATCHED AND condition THEN DELETE
-
+```
 Order matters.
 
 First matching clause is applied.
-
-Professional nuance:
-
-Improper ordering can cause unexpected behavior.
 
 ---
 
 ## 6️⃣ NOT MATCHED BY SOURCE
 
 Advanced clause:
-
+```sql
 WHEN NOT MATCHED BY SOURCE THEN DELETE
-
+```
 Used in:
 
 * Full sync pipelines
