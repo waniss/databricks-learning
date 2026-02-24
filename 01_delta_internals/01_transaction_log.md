@@ -1,15 +1,7 @@
-Perfect.
-You want curated content, not “go read docs somewhere”.
-
-Good. I’ll give you a **clean, structured, exam-focused explanation** of Delta Transaction Log — exactly what you need for Professional level.
-
-No marketing. No fluff. Only mechanisms.
 
 ---
 
-# 📘 WEEK 1 – DAY 1
-
-# 🔬 Delta Transaction Log — Full Structured Explanation
+# 📘 WEEK 1 – DAY 1 - Delta Transaction Log
 
 ---
 
