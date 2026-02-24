@@ -13,7 +13,7 @@ No marketing. No fluff. Only mechanisms.
 
 ---
 
-# 1️⃣ What Is the Delta Transaction Log?
+## 1️⃣ What Is the Delta Transaction Log?
 
 Every Delta table has a directory:
 
@@ -32,7 +32,7 @@ It relies on this log to build consistent snapshots.
 
 ---
 
-# 2️⃣ What Is Inside `_delta_log`?
+## 2️⃣ What Is Inside `_delta_log`?
 
 Inside `_delta_log` you will find:
 
@@ -54,7 +54,7 @@ There are 6 commit files (0 → 5).
 
 ---
 
-# 3️⃣ What Is a Commit File?
+## 3️⃣ What Is a Commit File?
 
 Each JSON file contains a list of **actions**.
 
@@ -71,7 +71,7 @@ Instead, it records file-level changes as actions.
 
 ---
 
-# 4️⃣ The `add` Action
+## 4️⃣ The `add` Action
 
 When data is written, Delta creates new Parquet files.
 
@@ -107,7 +107,7 @@ This tells Delta:
 
 ---
 
-# 5️⃣ The `remove` Action
+## 5️⃣ The `remove` Action
 
 When rows are deleted or updated, Delta does NOT modify files.
 
@@ -137,7 +137,7 @@ It is only logically removed.
 
 ---
 
-# 6️⃣ Copy-On-Write Behavior
+## 6️⃣ Copy-On-Write Behavior
 
 This is critical.
 
@@ -163,7 +163,7 @@ This is called **copy-on-write**.
 
 ---
 
-# 7️⃣ How Delta Builds a Snapshot
+## 7️⃣ How Delta Builds a Snapshot
 
 To read the current version:
 
@@ -182,7 +182,7 @@ This guarantees ACID properties.
 
 ---
 
-# 8️⃣ What Guarantees ACID?
+## 8️⃣ What Guarantees ACID?
 
 ACID is guaranteed by:
 
@@ -202,7 +202,7 @@ No partial writes.
 
 ---
 
-# 9️⃣ What Are Checkpoints?
+## 9️⃣ What Are Checkpoints?
 
 After many JSON commits, Delta creates a checkpoint file:
 
@@ -224,7 +224,7 @@ It improves log replay efficiency.
 
 ---
 
-# 🔟 Why Time Travel Works
+## 🔟 Why Time Travel Works
 
 Time travel works because:
 
@@ -247,7 +247,7 @@ Time travel only breaks if:
 
 ---
 
-# 11️⃣ What Happens If `_delta_log` Is Deleted?
+### What Happens If `_delta_log` Is Deleted?
 
 If `_delta_log` is removed:
 
@@ -260,7 +260,7 @@ The transaction log is mandatory.
 
 ---
 
-# 12️⃣ Summary — Professional-Level Understanding
+### Summary — Professional-Level Understanding
 
 Delta does NOT manage rows.
 It manages files.
