@@ -1,7 +1,7 @@
 
 ---
 
-## 🗓 WEEK 1 — DAY 5 — Schema Enforcement
+# 📘 WEEK 1 — DAY 5 — Schema Enforcement
 
 
 ---
