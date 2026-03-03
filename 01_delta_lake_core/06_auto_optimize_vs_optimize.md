@@ -1,7 +1,13 @@
 
 ---
 
-## 🗓 WEEK 3 — DAY 2 — Auto Optimize vs OPTIMIZE 
+# 📄 06_auto_optimize_vs_optimize.md
+
+(Elite Version — matching your exact required structure)
+
+---
+
+# Auto Optimize vs OPTIMIZE
 
 ---
 
@@ -47,9 +53,7 @@ Or:
 OPTIMIZE table_name ZORDER BY (customer_id);
 ```
 
----
-
-#### What Physically Happens
+### What Physically Happens
 
 OPTIMIZE:
 
@@ -68,10 +72,9 @@ It is a heavy rewrite operation.
 * Manual
 * Batch-oriented
 * Expensive compute operation
-* Not incremental in a fine-grained way
+* Not incremental in fine-grained way
 * Required periodically
-
-ZORDER requires OPTIMIZE.
+* ZORDER requires OPTIMIZE
 
 ---
 
@@ -84,17 +87,14 @@ It performs:
 * Small file compaction during writes
 * Optional optimized writes
 
-It attempts to prevent small files from being created in the first place.
+It attempts to prevent small files from being created.
 
 ---
 
-#### Two Components (Conceptually)
+### Two Components (Conceptually)
 
-1️⃣ Optimized Writes
-→ Tries to write reasonably sized files.
-
-2️⃣ Auto Compaction
-→ Merges small files automatically.
+1️⃣ Optimized Writes → Tries to write reasonably sized files.
+2️⃣ Auto Compaction → Merges small files automatically.
 
 ---
 
@@ -125,7 +125,7 @@ Auto Optimize:
 * Does NOT perform ZORDER
 * Does NOT deeply recluster historical data
 
-If table already has millions of small files:
+If table already fragmented:
 
 Auto Optimize alone is not enough.
 
@@ -135,8 +135,6 @@ You still need OPTIMIZE.
 
 ## 7️⃣ ZORDER Relationship
 
-Important:
-
 ZORDER only works via OPTIMIZE.
 
 Auto Optimize does NOT apply ZORDER.
@@ -145,7 +143,7 @@ Professional trap:
 
 If question says:
 
-> Improve file skipping using ZORDER
+“Improve file skipping using ZORDER”
 
 Answer must involve OPTIMIZE.
 
@@ -157,21 +155,17 @@ OPTIMIZE:
 
 * High compute cost
 * Full rewrite
-* Best run during low-traffic windows
+* Run during low-traffic windows
 
 Auto Optimize:
 
-* Adds small overhead during write
+* Small overhead during write
 * Reduces need for heavy batch OPTIMIZE
 * Better for continuous ingestion
-
-Architectural reasoning required.
 
 ---
 
 ## 9️⃣ Real Professional Scenario
-
-Scenario:
 
 Streaming pipeline writes small micro-batches.
 
@@ -179,11 +173,11 @@ Table accumulates many small files.
 
 Best solution:
 
-Enable Auto Optimize to reduce small file creation.
+Enable Auto Optimize.
 
 If table already degraded:
 
-Run OPTIMIZE once to compact historical data.
+Run OPTIMIZE once.
 
 ---
 
@@ -200,10 +194,8 @@ Run OPTIMIZE once to compact historical data.
 
 ## 🧠 Deep Understanding Check
 
-Answer sharply:
-
 1. Why does OPTIMIZE rewrite files?
-2. Why is Auto Optimize not enough for already fragmented tables?
+2. Why is Auto Optimize not enough for fragmented tables?
 3. Why does ZORDER require OPTIMIZE?
 4. Why can frequent OPTIMIZE increase cost?
-5. In streaming ingestion, why is Auto Optimize preferred?
+5. Why is Auto Optimize preferred for streaming ingestion?
