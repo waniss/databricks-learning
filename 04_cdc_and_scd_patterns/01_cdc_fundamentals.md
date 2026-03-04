@@ -67,11 +67,7 @@ data corruption is possible.
 
 ## 4️⃣ The Critical Concept: sequence_by
 
-From your document :
-
-> sequence_by ensures the “highest” value wins.
-
-This is mandatory.
+This is mandatory: sequence_by ensures the “highest” value wins.
 
 Why?
 
