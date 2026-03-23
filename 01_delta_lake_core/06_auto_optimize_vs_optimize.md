@@ -3,8 +3,6 @@
 
 # 📄 06_auto_optimize_vs_optimize.md
 
-(Elite Version — matching your exact required structure)
-
 ---
 
 # Auto Optimize vs OPTIMIZE
