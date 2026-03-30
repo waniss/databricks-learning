@@ -150,23 +150,3 @@ Cost engineering is multi-layered.
 5. Why must architecture be fixed before scaling?
 
 ---
-
-✅ Phase 2 — Spark Execution Engine completed.
-
-We now have:
-
-* Logical vs Physical Plan
-* Shuffle & Skew
-* Join Strategies
-* AQE
-* Cost & Resource Dynamics
-
----
-
-Next step options:
-
-1️⃣ Continue immediately to Phase 3 — Streaming Architecture
-2️⃣ Generate zip for Phase 1 + Phase 2 combined
-3️⃣ Review before proceeding
-
-Tell me how you want to proceed.
